@@ -2800,7 +2800,7 @@ switch for a group of related jacks, not a single plug:</p>
 <tbody>
 <tr>
 <td><strong>5-pin+TRS</strong></td>
-<td>Wired MIDI: <strong>5-pin DIN MIDI In / Out</strong>, plus <strong>every TRS jack</strong> set to <strong>MIDI Out</strong> or <strong>MIDI Out Only</strong> (<strong>M1:</strong> TRS 1–2, TRS 3 1/8 Out; <strong>M2:</strong> TRS 1–4, TRS 5 1/8 Out). On the <strong>M2</strong>, the <strong>1/8″ MIDI In</strong> jack is in this family too (use <strong>either</strong> it <strong>or</strong> 5-pin DIN In, not both).</td>
+<td>All the wired MIDI ports — everything that is not <strong>USB</strong> or <strong>BLE</strong>: the <strong>5-pin</strong> In / Out and every <strong>TRS</strong> jack set to a MIDI Out mode.</td>
 </tr>
 <tr>
 <td><strong>USB</strong></td>
@@ -2825,9 +2825,8 @@ it to mute that path without changing any Presets.</li>
 interface (MIDI In Actions, Tracking feedback, SysEx capture, etc.).
 Incoming MIDI must arrive on a column with <strong>In</strong> enabled before
 anything else can act on it — including <strong>Through</strong>.</li>
-<li><strong>Through</strong> (disabled by default): MIDI thru — forwards <em>incoming</em>
-MIDI (from any interface with <strong>In</strong> enabled) out of every interface
-that has <strong>Through</strong> enabled.</li>
+<li><strong>Through</strong> (disabled by default): passes incoming MIDI on to your
+other ports. See <a href="#_midi_routing_through">Through</a> below.</li>
 <li><strong>Clock</strong> (enabled by default): MIDI Clock can be sent on that
 interface. The BPM comes from the Preset Editor's BPM keypad or a
 Preset's <strong>MIDI Clock</strong> message; <strong>General › Clock</strong> decides whether
@@ -2836,25 +2835,29 @@ forwarded by <strong>Through</strong>, not by this button — real-time ticks pa
 through whenever <strong>Through</strong> is enabled.</li>
 </ul>
 <h4 id="_midi_routing_through">Through</h4>
+<p><strong>Through</strong> passes along MIDI that comes in from outside.</p>
 <ul>
+<li><strong>5-pin In → 5-pin Out.</strong> With <strong>5-pin+TRS</strong> <strong>In</strong> and <strong>Through</strong> on,
+anything arriving on a wired In is copied out the 5-pin Out and the
+TRS MIDI Out jacks, like a normal MIDI thru.</li>
+<li><strong>USB and BLE don't echo.</strong> A message is never sent back to the same
+USB port or Bluetooth device it came from, so a computer or iPad does
+not get its own clock and notes echoed back. It can still be passed on
+to your other ports.</li>
+<li><strong>Watch for loops:</strong> only enable <strong>Through</strong> on the paths that should
+carry MIDI onward, away from Graviton. Don't plug the output of a device
+that also has thru on back into Graviton's 5-pin In, or messages can
+chase around the circle.</li>
 <li><strong>Source and destination can differ.</strong> Example: a PC arrives on
 <strong>USB</strong> (<strong>In</strong> enabled). If <strong>5-pin+TRS › Through</strong> is enabled, it's
 forwarded out the 5-pin / TRS MIDI Out jacks. If <strong>BLE › Through</strong> is
 also enabled, it's forwarded over BLE too.</li>
 <li><strong>Graviton's own messages don't use Through</strong> — they always go out
 through <strong>Out</strong>. <strong>Through</strong> only forwards what arrives from outside.</li>
-<li><strong>What's forwarded:</strong> channel messages (Note, CC, PC, Pitch Bend,
-Aftertouch, …), SysEx, Song Select / Song Position, Tune Request, and
-real-time messages (MIDI Clock, Start / Stop / Continue, Active
-  Sensing, System Reset).</li>
 <li><strong>Typical use:</strong> Graviton sits mid-chain. Example: a laptop on <strong>USB</strong>
 sends clock and PCs → Graviton → delay and amp on 5-pin. Enable <strong>USB ›
 In</strong> and <strong>5-pin+TRS › Through</strong> so the pedals still hear the laptop.
 Graviton's own Presets still go out through <strong>Out</strong>.</li>
-<li><strong>Watch for loops:</strong> enabling <strong>Through</strong> on the same interface that
-feeds <strong>In</strong> (especially USB Host or BLE) can echo messages back to the
-source. Only enable <strong>Through</strong> on the paths that should carry MIDI
-onward, away from Graviton.</li>
 <li>To limit which MIDI channels are sent by <strong>Out</strong> / <strong>Through</strong> on each
 port, use <a href="#_channel_filter">Channel Filter</a> (below).</li>
 </ul>
@@ -2869,14 +2872,28 @@ TRS 2 on channel 2. Allow only channel 1 on TRS 1 and only channel 2
 on TRS 2, so each Program Change reaches only the device it's meant
 for.</p>
 </blockquote>
-<p>Each column is a port or a group of jacks that share one filter,
+<p>Each column is a port, or a group of jacks that share one filter,
 listed left to right:</p>
-<ul>
-<li><strong>M1:</strong> <strong>TRS 1</strong>, <strong>TRS 2</strong>, <strong>TRS 3 / 5-pin</strong>, <strong>USB</strong>, <strong>BLE</strong>.</li>
-<li><strong>M2:</strong> <strong>TRS 1+2 / 5-pin / 3.5mm</strong>, <strong>TRS 3</strong>, <strong>TRS 4</strong>, <strong>USB</strong>,
-<strong>BLE</strong>. TRS 1, TRS 2, the 5-pin jack, and the 3.5mm jack share one
-filter.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Columns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M1</strong></td>
+<td><strong>TRS 1</strong>, <strong>TRS 2</strong>, <strong>TRS 3 / 5-pin</strong>, <strong>USB</strong>, <strong>BLE</strong></td>
+</tr>
+<tr>
+<td><strong>M2</strong></td>
+<td><strong>TRS 1+2 / 5-pin / 3.5mm</strong>, <strong>TRS 3</strong>, <strong>TRS 4</strong>, <strong>USB</strong>, <strong>BLE</strong></td>
+</tr>
+</tbody>
+</table>
+<p>On the <strong>M2</strong>, TRS 1, TRS 2, the 5-pin jack, and the 3.5mm jack share
+one filter.</p>
 <p>Each column has an <strong>Out</strong> and a <strong>Thru</strong> button. Tap one to open its
 channel list, then tap a channel number (<strong>1–16</strong>) to allow or block
 it — allowed channels <strong>highlight</strong>. Tap <strong>ALL</strong> (top-right) to allow
