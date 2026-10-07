@@ -2502,9 +2502,10 @@ cable (bus-powered). Make sure the host port can supply enough power
 keyboard. Use it with <strong>Keystroke</strong> messages to control DAWs,
 computers, and iOS devices — especially DAWs with lots of keyboard
 shortcuts, such as Ableton Live.</li>
-<li><strong>Custom Name:</strong> Change the USB Device name shown on the host
-computer. Useful when several Graviton M1/M2 units connect through a
-USB hub.</li>
+<li><strong>Rename</strong> (<strong>Off</strong> / <strong>On</strong>): Tap <strong>Rename</strong> when <strong>Off</strong> to type a
+custom USB device name (the unit restarts). When <strong>On</strong>, tap <strong>Rename</strong>
+again to turn custom naming off and restore the default name. Useful when
+several Graviton M1/M2 units connect through a USB hub.</li>
 <li><strong>Host</strong> (USB Type-A port): Connect other USB MIDI devices (e.g.
 pedals, MIDI controllers).</li>
 </ul>
@@ -2534,12 +2535,19 @@ MIDI devices in the Central role.</li>
 <li><strong>Auto</strong> (default): For connecting to a <strong>single</strong> Central
 device. Advertising stops after a successful connection and resumes
 if disconnected.</li>
-<li><strong>Always On</strong>: For connecting to <strong>multiple</strong> Central devices.
+<li><strong>Always</strong>: For connecting to <strong>multiple</strong> Central devices.
 Switch back to <strong>Off</strong> afterward to avoid unwanted connections from
 unpaired devices.</li>
 </ul>
 </li>
-<li><strong>Custom Name</strong>: Change the advertising name.</li>
+<li><strong>Rename</strong> (<strong>Off</strong> / <strong>On</strong>): Tap <strong>Rename</strong> when <strong>Off</strong> to type a
+  custom advertising name (the unit restarts). When <strong>On</strong>, tap
+  <strong>Rename</strong> again to turn custom naming off and restore the default
+  name.</li>
+<li><strong>Devices › Manage:</strong> Lists bonded hosts (iPhone, iPad, Mac, and
+  similar) by name. Tap one to <strong>Forget</strong> it — for example a stale
+  iPhone link that keeps stalling on "Connecting…". Also choose <strong>Forget
+  This Device</strong> on the iPad or Mac when needed.</li>
 </ul>
 <blockquote>
 <p>In Peripheral mode the M1/M2 can pair with up to 3 Central devices.
@@ -2548,11 +2556,39 @@ Pair from each Central device separately.</p>
 <ul>
 <li><strong>Central:</strong> Connect to other Bluetooth MIDI devices that are
 advertising (in the Peripheral role).</li>
-<li><strong>Scanning</strong>: Scan for nearby advertising Bluetooth MIDI devices.
-  If a device asks for a PIN code, enter it before connecting.</li>
-<li><strong>Paired:</strong> Lists paired devices (up to 3). You can connect or
-  disconnect them temporarily, or unpair them.</li>
+<li><strong>Search › Start</strong>: Scan for nearby advertising Bluetooth MIDI
+  devices, then tap a name in the scanned list to connect.</li>
+<li><strong>Devices › Manage:</strong> Lists paired peripherals (up to 3). Tap one to
+  <strong>Connect</strong> or <strong>Disconnect</strong> temporarily, or <strong>Unpair</strong> it. See
+  <a href="#_ble_central_pin">PIN code</a> below when a device needs a pairing PIN.</li>
 </ul>
+<p><strong>PIN code</strong> {#_ble_central_pin}</p>
+<p>Some pedals and processors (for example the Eventide <strong>H90</strong>) show a
+<strong>numeric PIN on their own display</strong> while Bluetooth pairing. In
+<strong>Central</strong> mode the Graviton M1/M2 types that PIN for you — you do not
+enter it in iOS or Android settings.</p>
+<p>When the other device asks for a PIN:</p>
+<ol>
+<li>After <strong>Search › Start</strong>, tap the device name (or tap a saved device
+   under <strong>Devices › Manage</strong> and choose <strong>Connect</strong> or <strong>Enter PIN</strong>).</li>
+<li>While <strong>Connecting...</strong> is on screen, the <strong>PIN Code</strong> keypad opens
+   when the peer is ready.</li>
+<li>Enter the <strong>six digits</strong> shown on the other device, then confirm.</li>
+</ol>
+<p>If the PIN is wrong or you back out of the keypad, pairing stops and you
+may see <strong>Connecting Failed. Please try again...</strong> — run <strong>Search ›
+Start</strong> again or open <strong>Devices › Manage</strong> and connect manually.</p>
+<p>After a successful PIN pairing, the device stays in the <strong>Devices</strong> list
+and normally reconnects by itself after a power cycle without asking for
+the PIN again. Many Bluetooth MIDI adapters (such as CME <strong>WIDI</strong>) pair
+without a PIN — the keypad never appears for those.</p>
+<p>If the <strong>other device</strong> clears Bluetooth pairings but the Graviton still
+has it in the list, the row shows <strong>PIN</strong> in yellow, the Bluetooth tab
+header shows <strong>Mode (PIN needed)</strong>, and the unit will not auto-reconnect
+until you fix it. Tap that row → <strong>Enter PIN</strong> → enter the digits on the
+<strong>PIN Code</strong> keypad again. If pairing still fails, <strong>Unpair</strong> on the
+Graviton and pair fresh with <strong>Search › Start</strong>, or clear pairings on
+both sides.</p>
 <blockquote>
 <p>The M1/M2 remembers the devices in this list and reconnects to them
 after a power cycle.</p>
@@ -2564,7 +2600,7 @@ after a power cycle.</p>
   device from anything it was paired with before. They connect
   automatically.</li>
 <li>Option 2: Set the M1/M2 to <strong>Central</strong> mode and unpair the CME
-  device from anything it was paired with before. Then <strong>Scanning</strong> →
+  device from anything it was paired with before. Then <strong>Search</strong> →
   <strong>Start</strong> → tap the device name in the list to connect.</li>
 </ul>
 <blockquote>
@@ -2621,7 +2657,7 @@ using them. This is </strong>normal behavior<strong> — the BLE MIDI connection
 <ul>
 <li><strong>Other Bluetooth MIDI devices</strong> (advertising):</li>
 <li>Set the M1/M2 to <strong>Central</strong> mode.</li>
-<li><strong>General › Bluetooth › Scanning</strong> → <strong>Start</strong> → tap the device
+<li><strong>General › Bluetooth › Search</strong> → <strong>Start</strong> → tap the device
   name in the list to connect.</li>
 </ul>
 <h4>Pairing</h4>
