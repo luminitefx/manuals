@@ -2526,28 +2526,30 @@ scans for advertising Peripherals and starts the connection (pairing).</p>
 as long as the other device supports it too.</p>
 <ul>
 <li><strong>Mode</strong>: <strong>Off</strong> / <strong>Peripheral</strong> / <strong>Central</strong>. <strong>Off</strong> disables
-BLE (<strong>Restart to take effect ?</strong>).</li>
+  BLE (<strong>Restart to take effect ?</strong>).</li>
 <li><strong>Peripheral:</strong> Connect to computers, phones, tablets, or Bluetooth
-MIDI devices in the Central role.</li>
+  MIDI devices in the Central role.<ul>
 <li><strong>Advertising:</strong> Whether the Graviton M1/M2 is visible to unpaired
   Bluetooth devices when they scan.<ul>
 <li><strong>Off</strong>: Not visible to other Bluetooth scanners.</li>
 <li><strong>Auto</strong> (default): For connecting to a <strong>single</strong> Central
-device. Advertising stops after a successful connection and resumes
-if disconnected.</li>
+  device. Advertising stops after a successful connection and
+  resumes if disconnected.</li>
 <li><strong>Always</strong>: For connecting to <strong>multiple</strong> Central devices.
-Switch back to <strong>Off</strong> afterward to avoid unwanted connections from
-unpaired devices.</li>
+  Switch back to <strong>Off</strong> afterward to avoid unwanted connections
+  from unpaired devices.</li>
 </ul>
 </li>
-<li><strong>Rename</strong> (<strong>Off</strong> / <strong>On</strong>): Tap <strong>Rename</strong> when <strong>Off</strong> to type a
-  custom advertising name (the unit restarts). When <strong>On</strong>, tap
+<li><strong>Rename</strong> (<strong>Off</strong> / <strong>On</strong>): Tap <strong>Rename</strong> when <strong>Off</strong> to type
+  a custom advertising name (the unit restarts). When <strong>On</strong>, tap
   <strong>Rename</strong> again to turn custom naming off and restore the default
   name.</li>
 <li><strong>Devices › Manage:</strong> Lists bonded hosts (iPhone, iPad, Mac, and
   similar) by name. Tap one to <strong>Forget</strong> it — for example a stale
-  iPhone link that keeps stalling on "Connecting…". Also choose <strong>Forget
-  This Device</strong> on the iPad or Mac when needed.</li>
+  iPhone link that keeps stalling on "Connecting…". Also choose
+  <strong>Forget This Device</strong> on the iPad or Mac when needed.</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>In Peripheral mode the M1/M2 can pair with up to 3 Central devices.
@@ -2555,53 +2557,38 @@ Pair from each Central device separately.</p>
 </blockquote>
 <ul>
 <li><strong>Central:</strong> Connect to other Bluetooth MIDI devices that are
-advertising (in the Peripheral role).</li>
+  advertising (in the Peripheral role).<ul>
 <li><strong>Search › Start</strong>: Scan for nearby advertising Bluetooth MIDI
   devices, then tap a name in the scanned list to connect.</li>
-<li><strong>Devices › Manage:</strong> Lists paired peripherals (up to 3). Tap one to
-  <strong>Connect</strong> or <strong>Disconnect</strong> temporarily, or <strong>Unpair</strong> it. See
-  <a href="#_ble_central_pin">PIN code</a> below when a device needs a pairing PIN.</li>
+<li><strong>Devices › Manage:</strong> Lists paired peripherals (up to 3). Tap one
+  to <strong>Connect</strong> or <strong>Disconnect</strong> temporarily, or <strong>Unpair</strong> it. See
+  <a href="#_ble_central_pin">PIN code</a> below when a device needs a pairing
+  PIN.</li>
 </ul>
-<p><strong>PIN code</strong> {#_ble_central_pin}</p>
-<p>Some pedals and processors (for example the Eventide <strong>H90</strong>) show a
-<strong>numeric PIN on their own display</strong> while Bluetooth pairing. In
-<strong>Central</strong> mode the Graviton M1/M2 types that PIN for you — you do not
-enter it in iOS or Android settings.</p>
-<p>When the other device asks for a PIN:</p>
-<ol>
-<li>After <strong>Search › Start</strong>, tap the device name (or tap a saved device
-   under <strong>Devices › Manage</strong> and choose <strong>Connect</strong> or <strong>Enter PIN</strong>).</li>
-<li>While <strong>Connecting...</strong> is on screen, the <strong>PIN Code</strong> keypad opens
-   when the peer is ready.</li>
-<li>Enter the <strong>six digits</strong> shown on the other device, then confirm.</li>
-</ol>
-<p>If the PIN is wrong or you back out of the keypad, pairing stops and you
-may see <strong>Connecting Failed. Please try again...</strong> — run <strong>Search ›
-Start</strong> again or open <strong>Devices › Manage</strong> and connect manually.</p>
-<p>After a successful PIN pairing, the device stays in the <strong>Devices</strong> list
-and normally reconnects by itself after a power cycle without asking for
-the PIN again. Many Bluetooth MIDI adapters (such as CME <strong>WIDI</strong>) pair
-without a PIN — the keypad never appears for those.</p>
-<p>If the <strong>other device</strong> clears Bluetooth pairings but the Graviton still
-has it in the list, the row shows <strong>PIN</strong> in yellow, the Bluetooth tab
-header shows <strong>Mode (PIN needed)</strong>, and the unit will not auto-reconnect
-until you fix it. Tap that row → <strong>Enter PIN</strong> → enter the digits on the
-<strong>PIN Code</strong> keypad again. If pairing still fails, <strong>Unpair</strong> on the
-Graviton and pair fresh with <strong>Search › Start</strong>, or clear pairings on
-both sides.</p>
+</li>
+</ul>
+<h5 id="_ble_central_pin">PIN code</h5>
+<p>Some devices (e.g. Eventide <strong>H90</strong>) show a PIN on their own screen when
+pairing. If so, the <strong>PIN Code</strong> keypad pops up while <strong>Connecting...</strong> —
+enter the 6 digits shown on the device. You only need it once; after that
+the device reconnects on its own.</p>
+<p>If that device later forgets the pairing, its row under <strong>Devices</strong> shows
+a yellow <strong>PIN</strong>. Tap it → <strong>Enter PIN</strong> to pair again.</p>
 <blockquote>
 <p>The M1/M2 remembers the devices in this list and reconnects to them
 after a power cycle.</p>
 </blockquote>
 <p>Connection guide:</p>
 <ul>
-<li><strong>CME WIDI:</strong></li>
+<li><strong>CME WIDI:</strong><ul>
 <li>Option 1: Set the M1/M2 to <strong>Peripheral</strong> mode and unpair the CME
   device from anything it was paired with before. They connect
   automatically.</li>
 <li>Option 2: Set the M1/M2 to <strong>Central</strong> mode and unpair the CME
   device from anything it was paired with before. Then <strong>Search</strong> →
   <strong>Start</strong> → tap the device name in the list to connect.</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>⚠️ <strong><em>Note:</em>* For </strong>1-to-1 MIDI connections<strong>, you can use </strong>either
@@ -2610,23 +2597,27 @@ brands or custom MIDI groups<strong>, try </strong>either option*<em> and see wh
 works best for your setup.</em></p>
 </blockquote>
 <ul>
-<li><strong>macOS:</strong></li>
+<li><strong>macOS:</strong><ul>
 <li>Set the M1/M2 to <strong>Peripheral</strong> mode.</li>
 <li>On your Mac, open <strong>Audio MIDI Setup</strong> → <strong>Window</strong> → <strong>Show MIDI
   Studio</strong>, click the button with the <strong>Bluetooth</strong> logo → select
   <strong>Graviton M1/M2 BLE</strong> → <strong>Connect</strong>.</li>
-<li>Then select <strong>Graviton M1/M2 BLE</strong> as the MIDI input/output in your
-  DAW or app.</li>
+<li>Then select <strong>Graviton M1/M2 BLE</strong> as the MIDI input/output in
+  your DAW or app.</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>⚠️ <em><strong>Note</strong>: The M1/M2 won’t appear in the system Bluetooth settings
 like regular devices such as headphones or speakers.</em></p>
 </blockquote>
 <ul>
-<li><strong>iOS / Android:</strong></li>
+<li><strong>iOS / Android:</strong><ul>
 <li>Set the M1/M2 to <strong>Peripheral</strong> mode.</li>
 <li>On the phone or tablet, scan and connect from the Bluetooth or
   settings page of the <strong>app you're using</strong>.</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>⚠️ <em><strong>Note</strong>: The M1/M2 won’t appear in the iOS or Android system
@@ -2634,16 +2625,18 @@ Bluetooth settings like regular devices such as headphones or
 speakers.</em></p>
 </blockquote>
 <ul>
-<li><strong>Windows:</strong></li>
+<li><strong>Windows:</strong><ul>
 <li>Set the M1/M2 to <strong>Peripheral</strong> mode.</li>
 <li>Windows 10: <strong>Devices</strong> → change <strong>Devices discovery</strong> to
   <strong>Advanced</strong> → <strong>Add Device</strong> → <strong>Graviton M1/M2 BLE</strong>.</li>
 <li>Windows 11: <strong>Settings</strong> → <strong>Bluetooth &amp; devices</strong> → <strong>Add
   Device</strong> → <strong>Show more</strong> → <strong>Graviton M1/M2 BLE</strong>.</li>
-<li>Once paired, you need a UWP app from the Microsoft Store to connect
-  and route MIDI to your software, for example:<ul>
+<li>Once paired, you need a UWP app from the Microsoft Store to
+  connect and route MIDI to your software, for example:<ul>
 <li><strong>MIDIberry BLE</strong> — connects to BLE MIDI devices.</li>
 <li><strong>BLE MIDI Tester</strong> — for testing the connection.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2655,10 +2648,12 @@ using them. This is </strong>normal behavior<strong> — the BLE MIDI connection
 </strong>app-driven*<em>, not system-level like classic Bluetooth audio or HID.</em></p>
 </blockquote>
 <ul>
-<li><strong>Other Bluetooth MIDI devices</strong> (advertising):</li>
+<li><strong>Other Bluetooth MIDI devices</strong> (advertising):<ul>
 <li>Set the M1/M2 to <strong>Central</strong> mode.</li>
 <li><strong>General › Bluetooth › Search</strong> → <strong>Start</strong> → tap the device
   name in the list to connect.</li>
+</ul>
+</li>
 </ul>
 <h4>Pairing</h4>
 <p>Pair Luminite wireless controllers here (Bluetooth MIDI pairing is
