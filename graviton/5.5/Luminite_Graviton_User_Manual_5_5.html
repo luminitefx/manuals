@@ -70,10 +70,8 @@ img {
 }
 
 img.ui-shot {
-  /* 480×320 UI captures embedded at 2× nearest-neighbor for razor-sharp edges */
+  /* 480×320 UI captures embedded at 2× lossless PNG for crisp retina/HiDPI display */
   max-width: min(100%, 480px);
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
 }
 
 /* Cover Luminite logo — half the width of manual screenshots */
